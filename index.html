@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accident Prediction and Forecasting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #2c3e50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #34495e;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #eaf2f8;
+            border: 1px solid #d5dbdb;
+            border-radius: 5px;
+        }
+        .chart-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #7f8c8d;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Accident Prediction and Forecasting System</h1>
+</header>
+
+<main>
+    <div class="container">
+        <h2>Input Accident Details</h2>
+        <form id="predictionForm">
+            <div class="form-group">
+                <label for="location">Location (City/District):</label>
+                <input type="text" id="location" name="location" placeholder="Enter location">
+            </div>
+            <div class="form-group">
+                <label for="weather">Weather Condition:</label>
+                <select id="weather" name="weather">
+                    <option value="clear">Clear</option>
+                    <option value="rainy">Rainy</option>
+                    <option value="foggy">Foggy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="roadType">Road Type:</label>
+                <select id="roadType" name="roadType">
+                    <option value="highway">Highway</option>
+                    <option value="urban">Urban Road</option>
+                    <option value="rural">Rural Road</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="vehicleCount">Number of Vehicles:</label>
+                <input type="number" id="vehicleCount" name="vehicleCount" placeholder="Enter number of vehicles">
+            </div>
+            <button type="button" onclick="predictSeverity()">Predict Accident Severity</button>
+        </form>
+
+        <div id="predictionOutput" class="output" style="display: none;">
+            <h3>Prediction Results</h3>
+            <p><strong>Accident Severity:</strong> <span id="severity"></span></p>
+            <p><strong>Likelihood of Accident:</strong> <span id="likelihood"></span></p>
+        </div>
+
+        <h2>Forecast Results</h2>
+        <div class="chart-placeholder" id="forecastChart">
+            <p>Forecast chart will be displayed here</p>
+        </div>
+    </div>
+</main>
+
+<script>
+    function predictSeverity() {
+        // Simulate prediction logic (replace with ML model integration)
+        const severityLevels = ["Low", "Medium", "High"];
+        const likelihoodLevels = ["Unlikely", "Possible", "Very Likely"];
+
+        // Random output for demonstration (Replace with real ML outputs)
+        const severity = severityLevels[Math.floor(Math.random() * severityLevels.length)];
+        const likelihood = likelihoodLevels[Math.floor(Math.random() * likelihoodLevels.length)];
+
+        // Display the results
+        document.getElementById('severity').textContent = severity;
+        document.getElementById('likelihood').textContent = likelihood;
+        document.getElementById('predictionOutput').style.display = 'block';
+    }
+
+    // Add chart visualization (placeholder, replace with real charts using libraries like Chart.js)
+    document.getElementById('forecastChart').innerHTML = "<p>Forecast data visualization will go here (e.g., time series accident forecast).</p>";
+</script>
+
+</body>
+</html>
